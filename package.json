@@ -1,0 +1,36 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/cors": "^2.8.17",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.21",
+    "prisma": "^4.12.0",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "scripts": {
+    "prisma": "prisma",
+    "start": "node -r module-alias/register ./out/server.js",
+    "start:d": "yarn nodemon -r module-alias/register ./out/server.js",
+    "build": "yarn tsc && yarn tsc-alias",
+    "dev": "yarn nodemon --legacy-watch src/server.ts",
+    "test": "echo \"No test available\"",
+    "seed": "yarn prisma db push --force-reset && yarn prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.12.0",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4"
+  }
+}

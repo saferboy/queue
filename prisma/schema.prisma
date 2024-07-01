@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Auth {
+  id          Int     @id @default(autoincrement())
+  username    String  @unique
+  password    String
+  device_id   Int?
+  device_name String?
+  description String?
+}
+
+model Device {
+  id        Int    @id @default(autoincrement())
+  name      String
+  device_id Int    @unique
+  password  String
+}
+
+enum Device_Type {
+  order_receiving_device //buyurtma qabul qiluvchi qurilma
+  queuing_device //navbatlarni ko'rsatuvchi qurilma
+}
+
+model Category {
+  id      Int       @id @default(autoincrement())
+  name    String
+  product Product[]
+}
+
+model Product {
+  id         Int       @id @default(autoincrement())
+  name       String
+  comment    String
+  price      String
+  amount     Amount
+  order      Order?    @relation(fields: [orderId], references: [id])
+  orderId    Int?
+  Category   Category? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+}
+
+enum Amount {
+  unit //dona
+  weight //vazn
+  liter //litr
+}
+
+model Order {
+  id           Int       @id @default(autoincrement())
+  order_id     String    @unique
+  queue_number Int       @default(autoincrement())
+  products     Product[]
+  status       Status
+}
+
+enum Status {
+  preparing //tayyorlanmoqda
+  ready //tayyor
+  waiting_time //kutish vaqti
+  canceled //bekor qilingan
+}
