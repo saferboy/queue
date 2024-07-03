@@ -43,7 +43,7 @@ model Category {
 model Product {
   id         Int       @id @default(autoincrement())
   name       String
-  comment    String
+  comment    String?
   price      String
   amount     Amount
   order      Order?    @relation(fields: [orderId], references: [id])
