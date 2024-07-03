@@ -92,7 +92,7 @@ This API allows for user authentication and management of devices, categories, a
 
 ## Get All Devices
 
-- **URL**: `/devices`
+- **URL**: `/`
 - **Method**: `GET`
 - **Description**: `Retrieves all devices`.
 - **Success Response**:
@@ -111,3 +111,5 @@ This API allows for user authentication and management of devices, categories, a
   }
 ]
 ```
+---
+
