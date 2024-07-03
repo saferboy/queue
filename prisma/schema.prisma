@@ -23,10 +23,11 @@ model Auth {
 }
 
 model Device {
-  id        Int    @id @default(autoincrement())
-  name      String
-  device_id Int    @unique
-  password  String
+  id          Int         @id @default(autoincrement())
+  name        String
+  device_id   Int         @unique
+  password    String
+  device_type Device_Type
 }
 
 enum Device_Type {

@@ -13,7 +13,7 @@ export async function createDevice(
 
     if (oldDevice?.device_id) {
       return res.status(409).json({
-        message: "device avval yaratilgan",
+        message: "Device avval yaratilgan",
       });
     }
 
