@@ -12,9 +12,6 @@ export default class AuthService {
       data: {
         username: data.username,
         password: data.password,
-        device_id: data.device_id,
-        device_name: data.device_name,
-        description: data.desciption,
       },
     });
     return user;

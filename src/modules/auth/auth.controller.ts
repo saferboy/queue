@@ -19,9 +19,6 @@ export async function login(req: Request, res: Response, next: NextFunction) {
       user: {
         id: user.id,
         username: user.username,
-        device_id: user.device_id,
-        device_name: user.device_name,
-        description: user.description,
       },
     });
   } catch (e) {

@@ -29,10 +29,7 @@ This API allows for user authentication and management of devices, categories, a
   "message": "Muvaffaqiyatli login",
   "user": {
     "id": "number",
-    "username": "string",
-    "device_id": "number",
-    "device_name": "string",
-    "description": "string"
+    "username": "string"
   }
 }
 ```
@@ -100,7 +97,9 @@ This API allows for user authentication and management of devices, categories, a
 - **Description**: `Retrieves all devices`.
 - **Success Response**:
 - **Code: 200 OK**
-###  Content
+
+### Content
+
 ```json
 [
   {
@@ -109,6 +108,6 @@ This API allows for user authentication and management of devices, categories, a
     "device_id": "number",
     "password": "string",
     "device_type": "string"
-  },
+  }
 ]
 ```
